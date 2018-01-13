@@ -11,7 +11,7 @@ Latin characters remain unchanged.
 The utility manipulates strings only, it does't contain any hardware-depended code for direct access to LCD display. 
 You can use any driver for LCD display together with CyrLCDconverter. I recommend [LiquidCrystal library](https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home) by F. Malpartida.
 
-### Example for LiquidCrystal library: 
+### Example: 
 
 ```C++
 #include <Wire.h> 
