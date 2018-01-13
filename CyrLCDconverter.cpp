@@ -16,7 +16,7 @@ Vladimir Kirievskiy (C) 2018
 
 /*
  * @brief 
- * Converter of win1251 cyrillic for HD44780 based LCD display
+ * Converter of cyrillic strings for HD44780 based LCD display
  * Attention! Display must support cyrillic symbols
  * 
  * Example for LiquidCrystal library: 
