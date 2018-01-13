@@ -50,6 +50,4 @@ void loop()
 }
 ```
 
-For more info about LiquidCrystal library see:
-https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home 
 
