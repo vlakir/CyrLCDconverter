@@ -11,10 +11,7 @@ Latin symbols remain unchanged.
 
 ```c++
 #include <Wire.h> 
-
-// https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads
 #include "LiquidCrystal_I2C.h" 
-
 #include "CyrLCDconverter.h"
 
 // set the LCD address to 0x27 for a 20 chars 4 line display
@@ -22,11 +19,9 @@ Latin symbols remain unchanged.
 //                    addr, en,rw,rs,d4,d5,d6,d7,bl,blpol
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I2C address
 
-
 void setup()   
 {
-	lcd.begin(20,4); 
-
+	lcd.begin(20,4);
 	lcd.backlight();	
 	
 	//Attention! Cyrillic strings may be corrupted by Arduino IDE.
