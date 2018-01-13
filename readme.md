@@ -1,4 +1,4 @@
-# CyrLCDconverter arduino library
+# CyrLCDconverter Arduino library
 
 Converter of win1251 cyrillic for HD44780 based LCD display
 Attention! Display must support cyrillic symbols
