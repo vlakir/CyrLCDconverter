@@ -12,7 +12,7 @@ You can use any driver for LCD display together with CyrLCDconverter. I recommen
 
 ### Example for LiquidCrystal library: 
 
-```Arduino
+```C++
 #include <Wire.h> 
 #include "LiquidCrystal_I2C.h" 
 #include "CyrLCDconverter.h"
