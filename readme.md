@@ -7,6 +7,9 @@ Useful both for WIN1251 and UTF8 strings with cyrillic symbols
 (in accordance with value of ucCodepage parameter). 
 Latin symbols remain unchanged.
 
+The library manipulates strings only , it does't contain any hardware-depended code for direct access to LCD display. 
+You can use any driver for LCD display together with CyrLCDconverter. I recommend [LiquidCrystal library](https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home) by F. Malpartida.
+
 ### Example for LiquidCrystal library: 
 
 ```Arduino
