@@ -1,11 +1,11 @@
 # CyrLCDconverter Arduino library
 
 A simple converter of cyrillic strings for HD44780 based LCD display
-Attention! Display must support cyrillic symbols
+**Attention! It can't synthesize new character patterns. Display must have hardware support of cyrillic symbols.**
 
-Useful both for WIN1251 and UTF8 strings with cyrillic symbols 
+Useful both for WIN1251 and UTF8 strings with cyrillic characters 
 (in accordance with value of ucCodepage parameter). 
-Latin symbols remain unchanged.
+Latin characters remain unchanged.
 
 The library manipulates strings only , it does't contain any hardware-depended code for direct access to LCD display. 
 You can use any driver for LCD display together with CyrLCDconverter. I recommend [LiquidCrystal library](https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home) by F. Malpartida.
