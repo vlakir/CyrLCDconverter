@@ -9,7 +9,7 @@ Latin symbols remain unchanged.
 
 ### Example for LiquidCrystal library: 
 
-```c++
+```Arduino
 #include <Wire.h> 
 #include "LiquidCrystal_I2C.h" 
 #include "CyrLCDconverter.h"
