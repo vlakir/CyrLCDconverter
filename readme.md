@@ -1,4 +1,4 @@
-# CyrLCDconverter for LiquidCrystal Arduino libraries
+# CyrLCDconverter
 
 A simple converter of cyrillic strings for HD44780 based LCD display.
 
