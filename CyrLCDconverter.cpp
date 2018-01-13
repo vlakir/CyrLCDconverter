@@ -17,7 +17,7 @@ Vladimir Kirievskiy (C) 2018
 /*
  * @brief 
  * Converter of cyrillic strings for HD44780 based LCD display
- * Attention! Display must support cyrillic symbols
+ * Attention! Display must support cyrillic characters
  * 
  * Example for LiquidCrystal library: 
  * lcd.print(xConvertToCyrLCD (F("Быть или not to be?")), WIN1251);
@@ -26,7 +26,7 @@ Vladimir Kirievskiy (C) 2018
  * 
  * @param	 xString	- 	original string in win1251 codepage
  * @param	 ucCodepage	- 	codepage of original string: WIN1251 || UTF8
- * @return string with translated cyrillic symbols (latin symbols remain unchanged)		
+ * @return string with translated cyrillic characters (latin characters remain unchanged)		
  */
 String xConvertToCyrLCD (String xString, unsigned char ucCodepage) {	
 	if (ucCodepage == UTF8) {
