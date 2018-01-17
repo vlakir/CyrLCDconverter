@@ -12,6 +12,9 @@ Vladimir Kirievskiy (C) 2018
 * warranty, express or implied, as to its usefulness for any purpose.
 */
 
+#ifndef CYRLCDCONVERTER_H
+#define CYRLCDCONVERTER_H
+
 #include <WString.h>
 
 #define WIN1251 0
@@ -43,3 +46,4 @@ const unsigned char aucCyrylic[256] = {
 };
 */
 	
+#endif
