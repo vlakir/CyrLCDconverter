@@ -15,14 +15,24 @@ Vladimir Kirievskiy (C) 2018
 #ifndef CYRLCDCONVERTER_H
 #define CYRLCDCONVERTER_H
 
-#include <WString.h>
+#include <Arduino.h>
 
 #define WIN1251 0
 #define UTF8 1
 
-String xConvertToCyrLCD (String xString, unsigned char ucCodepage);
-static char cConvertToCyrLCD (unsigned char ucChar);
-static String utf8rus(String source);
+class ConvertToCyrLCD
+{
+	private:
+		byte ucCodepage;
+		char cConvertToCyrLCD (unsigned char ucChar);
+		String utf8rus(String source);
+	public:
+		ConvertToCyrLCD(byte ucCodepage);
+		String convert(String xString);	
+};
+
+
+
 
 /*
 //Recoding array (replaced by switch construction for memory saving)

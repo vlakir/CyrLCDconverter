@@ -16,19 +16,25 @@ Vladimir Kirievskiy (C) 2018
 
 /*
  * @brief 
- * Converter of cyrillic strings for HD44780 based LCD display
+ * Class for converter of cyrillic strings for HD44780 based LCD display
  * Attention! Display must support cyrillic characters
  * 
- * Example for LiquidCrystal library: 
- * lcd.print(xConvertToCyrLCD (F("Быть или not to be?")), WIN1251);
- * For more info see:
- * https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home 
+ * @param	 ucCodepage	- 	codepage of original string: WIN1251 || UTF8
+ */ 
+ConvertToCyrLCD::ConvertToCyrLCD (byte ucCodepage)
+{
+	ConvertToCyrLCD::ucCodepage = ucCodepage;
+}
+
+/*
+ * @brief 
+ * Converter of cyrillic strings for HD44780 based LCD display
  * 
  * @param	 xString	- 	original string in win1251 codepage
- * @param	 ucCodepage	- 	codepage of original string: WIN1251 || UTF8
  * @return string with translated cyrillic characters (latin characters remain unchanged)		
- */
-String xConvertToCyrLCD (String xString, unsigned char ucCodepage) {	
+ */ 
+String ConvertToCyrLCD::convert(String xString)
+{
 	if (ucCodepage == UTF8) {
 		xString = utf8rus(xString);
 	}	
@@ -40,11 +46,46 @@ String xConvertToCyrLCD (String xString, unsigned char ucCodepage) {
 			xString[i] = cConvertToCyrLCD( (unsigned char) xString[i]-0x80);
 		} // latin - remain unchanged
 	}		
-	return xString;
+	return xString;	
+}
+
+// Recode russian fonts from UTF-8 to Windows-1251
+String ConvertToCyrLCD::utf8rus(String source)
+{
+  int i,k;
+  String target;
+  unsigned char n;
+  char m[2] = { '0', '\0' };
+
+  k = source.length(); i = 0;
+
+  while (i < k) {
+    n = source[i]; i++;
+
+    if (n >= 0xC0) {
+      switch (n) {
+        case 0xD0: {
+          n = source[i]; i++;
+          if (n == 0x81) { n = 0xA8; break; }
+          if (n >= 0x90 && n <= 0xBF) n = n + 0x30;
+          break;
+        }
+        case 0xD1: {
+          n = source[i]; i++;
+          if (n == 0x91) { n = 0xB8; break; }
+          if (n >= 0x80 && n <= 0x8F) n = n + 0x70;
+          break;
+        }
+      }
+    }
+    m[0] = n; target = target + String(m);
+  }
+return target;
 }
 
 //Recoding array was replaced by switch construction for memory saving
-static char cConvertToCyrLCD (unsigned char ucChar) {
+char ConvertToCyrLCD::cConvertToCyrLCD (unsigned char ucChar) 
+{
 	unsigned char ucResult;
 	switch (ucChar) {
 		case 0: {ucResult = 0x84; break;}
@@ -193,39 +234,6 @@ static char cConvertToCyrLCD (unsigned char ucChar) {
 	}
 	return ucResult;
 }
-
-// Recode russian fonts from UTF-8 to Windows-1251
-static String utf8rus(String source)
-{
-  int i,k;
-  String target;
-  unsigned char n;
-  char m[2] = { '0', '\0' };
-
-  k = source.length(); i = 0;
-
-  while (i < k) {
-    n = source[i]; i++;
-
-    if (n >= 0xC0) {
-      switch (n) {
-        case 0xD0: {
-          n = source[i]; i++;
-          if (n == 0x81) { n = 0xA8; break; }
-          if (n >= 0x90 && n <= 0xBF) n = n + 0x30;
-          break;
-        }
-        case 0xD1: {
-          n = source[i]; i++;
-          if (n == 0x91) { n = 0xB8; break; }
-          if (n >= 0x80 && n <= 0x8F) n = n + 0x70;
-          break;
-        }
-      }
-    }
-    m[0] = n; target = target + String(m);
-  }
-return target;
-}
-
-
+ 
+ 
+ 
