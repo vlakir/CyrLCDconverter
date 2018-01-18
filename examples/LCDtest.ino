@@ -1,3 +1,5 @@
+#include <CyrLCDconverter.h>
+
 /*
 Vladimir Kirievskiy (C) 2018
 ********************************************************************************************
@@ -27,6 +29,9 @@ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I
 
 void setup()   
 {
+	
+	ConvertToCyrLCD converter = ConvertToCyrLCD(UTF8);
+	
 	lcd.begin(20,4); 
 
 	lcd.backlight();	
@@ -35,19 +40,19 @@ void setup()
 	//Test this app in an external editor.
 	
 	lcd.setCursor(0,0);
-	lcd.print(xConvertToCyrLCD (F("���� ��� �� ����?"), WIN1251));
+	lcd.print(converter.convert (F("Быть или не быть?")));
 	delay(500);	
 	
 	lcd.setCursor(0,1);
-	lcd.print(xConvertToCyrLCD (F("Вот в чём вопрос"), UTF8));
+	lcd.print(converter.convert (F("Вот в чем вопрос")));
 	delay(500);  
 	
 	lcd.setCursor(0,2);
-	lcd.print(F("To be or not to be?"));
+	lcd.print(converter.convert (F("To be or not to be?")));
 	delay(500);	
 	
 	lcd.setCursor(0,3);
-	lcd.print(F("That is the question"));
+	lcd.print(converter.convert (F("That is the question")));
 }
 
 void loop()
