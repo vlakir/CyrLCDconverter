@@ -1,2 +1,2 @@
-ConvertToCyrLCD		KEYWORD1
-convert		KEYWORD2
+ConvertToCyrLCD	KEYWORD1
+convert	KEYWORD2
