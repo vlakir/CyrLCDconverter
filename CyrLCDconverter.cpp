@@ -230,6 +230,7 @@ char ConvertToCyrLCD::cConvertToCyrLCD (unsigned char ucChar)
 		case 124: {ucResult = 0xc4; break;}
 		case 125: {ucResult = 0xc5; break;}
 		case 126: {ucResult = 0xc6; break;}
+		case 127: {ucResult = 0xc7; break;} // "я"		
 		default: ucResult = 0x00; 			
 	}
 	return ucResult;
